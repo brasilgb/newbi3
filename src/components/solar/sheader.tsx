@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import DropDown from '../DropDown';
 import Image from 'next/image';
-import { HomeIcon } from 'lucide-react';
+import { Building2, HomeIcon } from 'lucide-react';
 
 export default function SHeader() {
   return (
@@ -30,15 +30,16 @@ export default function SHeader() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem className='flex items-center gap-4 text-solar-gray-light uppercase text-sm font-semibold'>
-                <Link href={'/grupo'}><HomeIcon /></Link>
-                <Link href={'/menu2'}>Resumo</Link>
-                <Link href={''}>Faturamento</Link>
-                <Link href={''}>Análise de venda</Link>
-                <Link href={''}>Inadimplencia</Link>
-                <Link href={''}>Compras</Link>
-                <Link href={''}>Fluxo</Link>
-                <Link href={''}>Empréstimo</Link>
-                <Link href={''}>DRE</Link>
+                <Link href={'/grupo'} title='Grupo'><Building2 /></Link>
+                <Link href={'/solar'} title='Lojas Solar'><HomeIcon /></Link>
+                <Link href={'/solar/resumo'} title='Resumo'>Resumo</Link>
+                <Link href={'/solar/faturamento'} title='Faturamneto'>Faturamento</Link>
+                <Link href={'/solar/análise'} title='Análise de Venda'>Análise de venda</Link>
+                <Link href={'/solar/inadimplencia'} title='Inadimplência'>Inadimplencia</Link>
+                <Link href={'/solar/compras'} title='Compras'>Compras</Link>
+                <Link href={'/solar/fluxo'} title='Fluxo'>Fluxo</Link>
+                <Link href={'/solar/emprestimo'} title='Empréstimo'>Empréstimo</Link>
+                <Link href={'/solar/dre'} title='DRE'>DRE</Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>

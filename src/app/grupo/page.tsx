@@ -18,7 +18,7 @@ export default function Home() {
       <div className="sm:grid grid-cols-2 flex flex-col sm:gap-8 gap-4">
         <Card className="bg-gray-50 border border-white">
           <CardHeader>
-            <CardTitle className="text-xl font-medium">Lojas Solar</CardTitle>
+            <CardTitle className="text-xl text-gray-500">Lojas Solar</CardTitle>
             <CardDescription>Relatórios administrativos Lojas Solar</CardDescription>
           </CardHeader>
           <CardContent>
@@ -48,7 +48,7 @@ export default function Home() {
 
         <Card className="bg-gray-50 border border-white">
           <CardHeader>
-            <CardTitle className="text-xl font-medium">Naturovos</CardTitle>
+            <CardTitle className="text-xl text-gray-500">Naturovos</CardTitle>
             <CardDescription>Relatorios Administrativos Naturovos</CardDescription>
           </CardHeader>
           <CardContent>

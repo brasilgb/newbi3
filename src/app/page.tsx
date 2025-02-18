@@ -1,10 +1,10 @@
 'use client';
 import { redirect } from 'next/navigation';
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 
 export default function page() {
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         redirect("/grupo")
     }, []);
     

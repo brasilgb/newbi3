@@ -11,9 +11,9 @@ export default function SolarLayout({
     return (
         <html lang="en">
             <body>
-                <main className="min-h-screen flex flex-col bg-gray-100">
+                <main className="min-h-screen flex flex-col bg-gray-50">
                     <SHeader />
-                    <div className="flex-grow px-4">
+                    <div className="flex-grow p-4">
                         {children}
                     </div>
                     <SFooter />
