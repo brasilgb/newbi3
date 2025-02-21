@@ -1,7 +1,9 @@
-
+'use client'
 import SFooter from '@/components/solar/sfooter';
 import SHeader from '@/components/solar/sheader';
+import { useAuthContext } from '@/contexts/authcontext';
 import React from 'react'
+import Loading from '../loading';
 
 export default function SolarLayout({
     children,

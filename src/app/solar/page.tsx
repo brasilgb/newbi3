@@ -1,79 +1,89 @@
 'use client';
 import { RadialChart } from '@/components/chart/radial';
 import Kpis from '@/components/Kpis';
+import { useAuthContext } from '@/contexts/authcontext';
 import birel from '@/services/birel';
 import { formatPercent } from '@/utils';
 import { Boxes, ChartSpline, DollarSign, HandCoins, TrendingDown, TrendingUp, TrendingUpDown } from 'lucide-react';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import Loading from '../loading';
 
 export default function Loja() {
+  const { setDateUpdate, filterDate, loading, setLoading } = useAuthContext();
   const [fatTotalLoja, setFatTotalLoja] = useState<any>();
   const [fatTotalAssoc, setFatTotalAssoc] = useState<any>();
   const [totalFaturamentoLoja, setTotalFaturamentoLoja] = useState<any>();
   const [inadimplencia, setInadimplencia] = useState<any>();
 
-
   useEffect(() => {
     const getFatTotalAssoc = async () => {
+      setLoading(true);
       await birel.post('(LOJ_FAT_TOTPEFASM)', {
-        datalojtotpefasm: 20250217
+        datalojtotpefasm: moment(filterDate).format('YYYYMMDD'),
       })
         .then((res: any) => {
           setFatTotalAssoc(res.data.bi011.bidata[0]);
+
         })
         .catch((err: any) => {
           console.log(err);
-        })
+        }).finally(() => setLoading(false));
     }
     getFatTotalAssoc();
-  }, []);
+  }, [filterDate]);
 
   useEffect(() => {
     const getFatTotalLoja = async () => {
+      setLoading(true);
       await birel.post('(LOJ_FATU_TOTAL)', {
-        datalojfatutotal: 20250217
+        datalojfatutotal: moment(filterDate).format('YYYYMMDD'),
       })
         .then((res: any) => {
           setFatTotalLoja(res.data.bi040.bidata[0]);
+          setDateUpdate(res.data.bi040.bidata[0].Atualizacao);
         })
         .catch((err: any) => {
           console.log(err);
-        })
+        }).finally(() => setLoading(false));
     }
     getFatTotalLoja();
-  }, []);
+  }, [filterDate]);
 
   useEffect(() => {
     const getTotalFaturamentoLoja = async () => {
+      setLoading(true);
       await birel.post('(LOJ_FAT_FATUTO)', {
-        datalojfatuto: 20250217
+        datalojfatuto: moment(filterDate).format('YYYYMMDD'),
       })
         .then((res: any) => {
           setTotalFaturamentoLoja(res.data.bi007.bidata[0]);
         })
         .catch((err: any) => {
           console.log(err);
-        })
+        }).finally(() => setLoading(false));
     }
     getTotalFaturamentoLoja();
-  }, []);
+  }, [filterDate]);
 
   useEffect(() => {
     const getInadimplencia = async () => {
+      setLoading(true);
       await birel.get('(LOJVEN_INADIM)')
         .then((res: any) => {
           setInadimplencia(res.data.bi062.bidata[0]);
         })
         .catch((err: any) => {
           console.log(err);
-        })
+        }).finally(() => setLoading(false));
     }
     getInadimplencia();
-  }, []);
+  }, [filterDate]);
 
 
   return (
     <>
+      {loading && <Loading />}
       <div className='grid sm:grid-cols-5 gap-4'>
         <Kpis
           title="Vendas ao Mês"
