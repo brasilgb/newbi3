@@ -72,3 +72,10 @@
     @apply bg-background text-foreground font-roboto antialiased;
   }
 }
+ div:has(> .has-sticky-header) {
+      position: unset;
+      overflow: unset;
+    }
+    .highcharts-container {
+      box-shadow: none !important;
+    }

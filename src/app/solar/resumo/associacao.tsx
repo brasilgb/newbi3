@@ -33,7 +33,7 @@ export default function Associacao({ associacao, totais }: AssociacaoProps) {
                         <TableCell>{formatPercent(total.Juros)}%</TableCell>
                     </TableRow>
                 ))}
-                {associacao?.sort((a:any, b:any) => (a.Faturamento < b.Faturamento ? 1 : -1)).map((assoc: any, fdx: number) => (
+                {associacao?.sort((a: any, b: any) => (a.Faturamento < b.Faturamento ? 1 : -1)).map((assoc: any, fdx: number) => (
                     <TableRow key={fdx} className='text-gray-600'>
                         <TableCell>{assoc.Associacao}</TableCell>
                         <TableCell>{formatMoney(assoc.Faturamento)}</TableCell>

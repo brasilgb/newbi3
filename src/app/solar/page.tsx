@@ -3,7 +3,7 @@ import { RadialChart } from '@/components/chart/radial';
 import Kpis from '@/components/Kpis';
 import { useAuthContext } from '@/contexts/authcontext';
 import birel from '@/services/birel';
-import { formatPercent } from '@/utils';
+import { formatMoney, formatPercent } from '@/utils';
 import { Boxes, ChartSpline, DollarSign, HandCoins, TrendingDown, TrendingUp, TrendingUpDown } from 'lucide-react';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
@@ -87,31 +87,31 @@ export default function Loja() {
       <div className='grid sm:grid-cols-5 gap-4'>
         <Kpis
           title="Vendas ao Mês"
-          value={parseFloat(fatTotalLoja?.VendaAgora)}
+          value={formatMoney(parseFloat(fatTotalLoja?.VendaAgora))}
           icon={<HandCoins />}
           footer="Valores gerado em tempo real pelo sistema"
         />
         <Kpis
           title="Vendas ao Dia"
-          value={parseFloat(fatTotalLoja?.VendaDia)}
+          value={formatMoney(parseFloat(fatTotalLoja?.VendaDia))}
           icon={<HandCoins />}
           footer="Valores gerado em tempo real pelo sistema"
         />
         <Kpis
           title="Juros ao Dia"
-          value={parseFloat(fatTotalLoja?.JuroAgora)}
+          value={formatMoney(parseFloat(fatTotalLoja?.JuroAgora))}
           icon={<TrendingUp />}
           footer="Valores gerado em tempo real pelo sistema"
         />
         <Kpis
           title="Meta"
-          value={parseFloat(fatTotalLoja?.Meta)}
+          value={formatMoney(parseFloat(fatTotalLoja?.Meta))}
           icon={<ChartSpline />}
           footer="Meta do período"
         />
         <Kpis
           title="Faturamento"
-          value={parseFloat(fatTotalLoja?.Faturamento)}
+          value={formatMoney(parseFloat(fatTotalLoja?.Faturamento))}
           icon={<DollarSign />}
           footer="Faturamento do período"
         />

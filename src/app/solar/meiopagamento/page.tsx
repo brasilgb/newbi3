@@ -92,7 +92,7 @@ export default function MeioPagamento() {
                 .catch((err) => {
                     console.log(err);
                 })
-                .finally(() => setLoading(true));
+                .finally(() => setLoading(false));
         });
         getMeioPag();
     }, [filterDate]);
@@ -137,12 +137,6 @@ export default function MeioPagamento() {
         getMeioPag();
     }, [filterDate]);
 
-
-
-    const valuesFiliais = (meio: string, filial: string, campo: string) => {
-        const meiofilial = meioPagFilial.filter((fmeio: any) => (fmeio?.MeioPagamento == meio && fmeio?.NomeFilial == filial)).map((vd: any) => (campo == 'VendaDevolucao' ? vd?.VendaDevolucao : vd?.PercentVenda));
-        return meiofilial;
-    }
     const analisecli = {
         meioPag: meioPag, 
         meioPagTotal:meioPagTotal, 
@@ -174,7 +168,7 @@ export default function MeioPagamento() {
                             <AnaliseVenda analise={analisecli} />
                         </TabsContent>
                         <TabsContent value="situacaocliente">
-                            <SituacaoCliente situacao={situacaocli} />
+                            <SituacaoCliente situacaocli={situacaocli} />
                         </TabsContent>
                     </Tabs>
                 </div>

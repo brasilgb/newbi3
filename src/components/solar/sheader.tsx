@@ -2,13 +2,9 @@
 import React from 'react'
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import DropDown from '../DropDown';
@@ -16,10 +12,11 @@ import Image from 'next/image';
 import { Building2, ClockArrowDown, HomeIcon } from 'lucide-react';
 import { DatePicker } from '@/components/calendar/datepicker';
 import { useAuthContext } from '@/contexts/authcontext';
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { usePathname } from 'next/navigation';
 
 export default function SHeader() {
   const { dateUpdate } = useAuthContext();
+  const pathname = usePathname();
   return (
     <div>
       <div className='bg-solar-blue-primary h-16 min-h-16'>
@@ -34,54 +31,54 @@ export default function SHeader() {
           <div className='flex flex-1 items-center justify-start px-6'>
             <NavigationMenu>
               <NavigationMenuList>
-                <NavigationMenuItem className='flex items-center gap-4 uppercase text-sm font-semibold'>
-                  <Link href={'/grupo'} title='Grupo'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuItem className='flex items-center gap-2 uppercase text-sm font-semibold'>
+                  <Link href={'/grupo'} title='Grupo' className={`py-2 px-4 rounded-md ${pathname == '/grupo' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       <Building2 />
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar'} title='Lojas Solar'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar'} title='Lojas Solar' className={`py-2 px-4 rounded-md ${pathname == '/solar' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       <HomeIcon />
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/resumo'} title='Resumo'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar/resumo'} title='Resumo' className={`py-2 px-4 rounded-md ${pathname == '/solar/resumo' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       Resumo
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/faturamento'} title='Faturamneto'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar/faturamento'} title='Faturamneto' className={`py-2 px-4 rounded-md ${pathname == '/solar/faturamento' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       Faturamento
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/meiopagamento'} title='Análise de Venda'>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
+                  <Link href={'/solar/meiopagamento'} title='Análise de Venda' className={`py-2 px-4 rounded-md ${pathname == '/solar/meiopagamento' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       Análise de venda
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/inadimplencia'} title='Inadimplência'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Inadimplencia
+                  <Link href={'/solar/inadimplencia'} title='Inadimplência' className={`py-2 px-4 rounded-md ${pathname == '/solar/inadimplencia' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
+                      Inadimplência
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/compras'} title='Compras'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar/compras'} title='Compras' className={`py-2 px-4 rounded-md ${pathname == '/solar/compras' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       Compras
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/fluxo'} title='Fluxo'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar/fluxo'} title='Fluxo' className={`py-2 px-4 rounded-md ${pathname == '/solar/fluxo' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       Fluxo
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/emprestimo'} title='Empréstimo'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar/emprestimo'} title='Empréstimo' className={`py-2 px-4 rounded-md ${pathname == '/solar/emprestimo' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       Empréstimo
                     </NavigationMenuLink>
                   </Link>
-                  <Link href={'/solar/dre'} title='DRE'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Link href={'/solar/dre'} title='DRE' className={`py-2 px-4 rounded-md ${pathname == '/solar/dre' ? 'bg-background text-solar-blue-primary': 'text-background'}`}>
+                    <NavigationMenuLink>
                       DRE
                     </NavigationMenuLink>
                   </Link>
