@@ -13,6 +13,7 @@ import { Building2, ClockArrowDown, HomeIcon } from 'lucide-react';
 import { DatePicker } from '@/components/calendar/datepicker';
 import { useAuthContext } from '@/contexts/authcontext';
 import { usePathname } from 'next/navigation';
+import { DateRangeCalendar } from '../calendar/daterange';
 
 export default function SHeader() {
   const { dateUpdate } = useAuthContext();
@@ -93,7 +94,7 @@ export default function SHeader() {
       </div>
       <div className='w-full bg-gray-100'>
         <div className='container m-auto flex items-center justify-around h-10'>
-          <div><DatePicker /></div>
+          <div><DatePicker /><DateRangeCalendar /></div>
           <div className='flex items-center justify-center text-sm bg-white border h-8 rounded-md w-[240px] text-gray-500 font-medium gap-2'>
             <ClockArrowDown className='h-4 w-4' />
             <div>{dateUpdate}</div>

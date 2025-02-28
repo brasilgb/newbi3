@@ -1,14 +1,18 @@
 'use client'
+import { addDays } from "date-fns";
 import moment from "moment";
 import { createContext, ReactNode, useContext, useState } from "react";
+import { DateRange } from "react-day-picker";
 
 
 const AuthContext = createContext({} as any);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [dateUpdate, setDateUpdate] = useState<any>(moment().format("DD/MM/YYY HH:MM:SS"));
-    const [startDate, setStartDate] = useState<Date>(new Date);
-    const [endDate, setEndDate] = useState<Date>(new Date);
+    const [rangeDate, setRangeDate] = useState<DateRange | undefined>({
+        from: new Date(),
+        to: new Date(),
+      });
     const [filterDate, setFilterDate] = useState<Date>(new Date);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -16,10 +20,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         <AuthContext.Provider value={{
             dateUpdate,
             setDateUpdate,
-            startDate,
-            setStartDate,
-            endDate,
-            setEndDate,
+            rangeDate,
+            setRangeDate,
             filterDate,
             setFilterDate,
             loading,

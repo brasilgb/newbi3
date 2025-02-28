@@ -4,7 +4,6 @@ import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuthContext } from '@/contexts/authcontext';
 import React, { useEffect, useState } from 'react'
-import Filiais from '../resumo/filiais';
 import CompDia from './compdia';
 import Performance from './performance';
 import PerformAssoc from './performassoc';
@@ -134,10 +133,10 @@ export default function page() {
                             <Performance graficoData={lComGrafico} />
                         </TabsContent>
                         <TabsContent value="performassoc">
-                            <PerformAssoc />
+                            <PerformAssoc performdata={lComPerfAssoc} totais={lComTotais} />
                         </TabsContent>
                         <TabsContent value="performmes">
-                            <PerformMes />
+                            <PerformMes performes={lComPerfMes} totais={lComTotais} />
                         </TabsContent>
                     </Tabs>
                 </div>

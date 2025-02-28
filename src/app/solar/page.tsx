@@ -143,7 +143,7 @@ export default function Loja() {
       <div className='grid sm:grid-cols-4 gap-4 mt-4'>
         <Kpis
           title="Vencidos (15 > venc <= 180)"
-          value={parseFloat(inadimplencia?.ValorVencido)}
+          value={formatMoney(parseFloat(inadimplencia?.ValorVencido))}
           icon={<TrendingUpDown />}
           footer={
             <div className='flex items-center justify-between w-full'>
@@ -156,7 +156,7 @@ export default function Loja() {
         />
         <Kpis
           title="Perdas efetivas ( venc > 180)"
-          value={parseFloat(inadimplencia?.ValorPerda)}
+          value={formatMoney(parseFloat(inadimplencia?.ValorPerda))}
           icon={<TrendingDown />}
           footer={
             <div className='flex items-center justify-between w-full'>
@@ -169,7 +169,7 @@ export default function Loja() {
         />
         <Kpis
           title="Juros ao Mês"
-          value={parseFloat(totalFaturamentoLoja?.JurosSPM)}
+          value={formatMoney(parseFloat(totalFaturamentoLoja?.JurosSPM))}
           icon={<TrendingUp />}
           footer={
             <div className='flex items-center justify-between w-full'>
@@ -182,7 +182,7 @@ export default function Loja() {
         />
         <Kpis
           title="Estoque Atual"
-          value={parseFloat(fatTotalAssoc?.EstoqueAss)}
+          value={formatMoney(parseFloat(fatTotalAssoc?.EstoqueAss))}
           icon={<Boxes />}
           footer={
             <div className='flex items-center justify-between w-full'>
